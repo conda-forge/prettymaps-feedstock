@@ -1,5 +1,5 @@
 {% set name = "prettymaps" %}
-{% set version = "1.3.2" %}
+{% set version = "1.4" %}
 {% set python_min = "3.11" %}
 
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/prettymaps-{{ version }}.tar.gz
-  sha256: a70ff69687beddad21e9e8f2d797635d6266a695cf48406ff349be666a1ecec1
+  sha256: a3c5f8d6ff1ddfd8c2ab00b5e66d876cdbc541ab8731f79f47be029fec5319df
 
 build:
   number: 0
