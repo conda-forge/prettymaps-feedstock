@@ -42,12 +42,10 @@ requirements:
     - scikit-learn >=1.6.1
 
 test:
+  # Turn off pip check because problems with numpy, opencv, and elevation versions
   imports:
     - prettymaps
-  commands:
-    - pip check
   requires:
-    - pip
     - python {{ python_min }}
 
 about:
