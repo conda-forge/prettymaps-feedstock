@@ -24,7 +24,7 @@ requirements:
   run:
     - python >={{ python_min }}
     # Remove upper pin of numpy since it conflicts with vsketch/vpype
-    - numpy >=1.20#,<1.25
+    - numpy >=1.20
     - matplotlib-base >=3.9.0
     - shapely >=2.0.0
     - osmnx >=1.9.3,<2.0
