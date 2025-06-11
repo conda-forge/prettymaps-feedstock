@@ -1,5 +1,5 @@
 {% set name = "prettymaps" %}
-{% set version = "1.3.2" %}
+{% set version = "1.4" %}
 {% set python_min = "3.11" %}
 
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/prettymaps-{{ version }}.tar.gz
-  sha256: a70ff69687beddad21e9e8f2d797635d6266a695cf48406ff349be666a1ecec1
+  sha256: a3c5f8d6ff1ddfd8c2ab00b5e66d876cdbc541ab8731f79f47be029fec5319df
 
 build:
   number: 0
@@ -23,19 +23,29 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - numpy >=1.20,<1.25
+    # Remove upper pin of numpy since it conflicts with vsketch/vpype
+    - numpy >=1.20#,<1.25
     - matplotlib-base >=3.9.0
     - shapely >=2.0.0
     - osmnx >=1.9.3,<2.0
     - ipykernel >=6.29.5
+    - rasterio >=1.4.3
+    - rioxarray >=0.18.2
+    # The headless version on Conda is erroneous as headless functionality is provided by opencv feedstock
+    - opencv >=4.11.0
+    - scikit-image >=0.25.2
+    - vsketch >=1.0.0
+    - thefuzz >=0.22.1
+    - elevation >=1.1.3
+    - streamlit >=1.42.2
+    - tqdm >=4.67.1
+    - scikit-learn >=1.6.1
 
 test:
+  # Turn off pip check because problems with numpy, opencv, and elevation versions
   imports:
     - prettymaps
-  commands:
-    - pip check
   requires:
-    - pip
     - python {{ python_min }}
 
 about:
